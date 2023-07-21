@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./button.module.css";
 import { ConnectButtonProps } from "./types";
-import Avatar from "../Avatar";
+import { Avatar } from "../Avatar";
 import DefaulAvatar from "../../public/logo.png";
 
-export default function ConnectButton({
+export function SignButton({
   buttonlabel = "Connect",
   buttonBackground,
   avatarSrc = DefaulAvatar,

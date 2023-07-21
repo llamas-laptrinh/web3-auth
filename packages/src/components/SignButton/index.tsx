@@ -1,13 +1,11 @@
 import React from "react";
-import styles from "./button.module.css";
 import { ConnectButtonProps } from "./types";
-import Avatar from "../Avatar";
-import DefaulAvatar from "../../public/logo.png";
+import { Avatar } from "../Avatar";
 
-export default function ConnectButton({
+export function SignButton({
   buttonlabel = "Connect",
   buttonBackground,
-  avatarSrc = DefaulAvatar,
+  avatarSrc = "",
   customButton,
   customAvatar,
   onClick,
@@ -22,7 +20,7 @@ export default function ConnectButton({
         ) : (
           <button
             style={{ backgroundColor: buttonBackground }}
-            className={styles.buttonContainer}
+            className="buttonContainer"
             onClick={onClick}
           >
             {buttonlabel}
@@ -31,8 +29,8 @@ export default function ConnectButton({
       ) : customAvatar ? (
         customAvatar(address, avatarSrc, onAvatarClick)
       ) : (
-        <div className={styles.avatarContainer}>
-          <p className={styles.address} title={address}>
+        <div className="avatarContainer">
+          <p className="address" title={address}>
             {address.slice(0, 5)}...
             {address.slice(address.length - 5, address.length)}
           </p>

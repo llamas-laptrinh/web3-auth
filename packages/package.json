@@ -1,0 +1,38 @@
+{
+  "name": "llmas-auth",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "lib",
+    "src",
+    "styles.css"
+  ],
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js",
+      "types": "./lib/types/index.d.ts"
+    },
+    "./styles.css": "./styles.css"
+  },
+  "sideEffects": [
+    "styles.css"
+  ],
+  "scripts": {
+    "build": "npx tsc --build --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tweetnacl": "^1.0.3",
+    "bs58": "^5.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "^18.0.12"
+  },
+  "author": "",
+  "license": "ISC"
+}

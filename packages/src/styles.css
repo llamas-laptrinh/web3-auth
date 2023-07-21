@@ -1,0 +1,23 @@
+.buttonContainer {
+    padding: 0.5rem 1.5rem;
+}
+
+.avatarContainer {
+    display: flex;
+    align-items: center;
+}
+
+.address {
+    font-size: small;
+}
+
+.container {
+    border-radius: 50%;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.container:hover {
+    opacity: 0.8;
+    transition: all 0.1s ease-in;
+}

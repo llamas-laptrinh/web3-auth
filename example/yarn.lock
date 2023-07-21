@@ -2419,6 +2419,11 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
+solana-auth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/solana-auth/-/solana-auth-1.0.1.tgz#eee38400c9fff61700aed4cbdeac977ebf1825d4"
+  integrity sha512-wVg5rAct3TdLOIa8e/gKRcD6HNgPATsFVSBa8J6k2BTcKgCBUt11dEDPmyfSFuOMNlFgh+M9h3G/Cow9kq+s5Q==
+
 source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"

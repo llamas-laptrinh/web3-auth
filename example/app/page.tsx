@@ -2,11 +2,12 @@
 // import Image from "next/image";
 import { getCsrfToken, signIn, signOut } from "next-auth/react";
 import styles from "./page.module.css";
-import ConnectButton from "@/components/ConnectButton";
+import { SignButton } from "@/components";
+import Signature from "solana-auth/packages/core/signature";
 import React from "react";
 import { connectWallet } from "@/util";
 import bs58 from "bs58";
-import Signature from "@/util/signature";
+// import Signature from "@/util/signature";
 
 export default function Home() {
   const [walletAddress, setWalletAddress] = React.useState("");
@@ -32,11 +33,10 @@ export default function Home() {
           }),
           redirect: false,
         });
-        console.log('====================================')
-        console.log(response)
-        console.log('====================================')
+        console.log("====================================");
+        console.log(response);
+        console.log("====================================");
         setWalletAddress(wallet.publicKey.toString());
-
       } else {
         console.log("Could not connect to wallet");
       }
@@ -53,7 +53,7 @@ export default function Home() {
         height: "100vh",
       }}
     >
-      <ConnectButton
+      <SignButton
         onClick={onConnect}
         buttonlabel="SignIn by Wallet"
         address={walletAddress}
