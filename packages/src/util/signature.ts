@@ -5,7 +5,7 @@ interface signature {
   signature: string;
   publicKey: any;
 }
-export default class Signature {
+export class Signature {
   public static create(nonce: string) {
     return new TextEncoder().encode(nonce);
   }
