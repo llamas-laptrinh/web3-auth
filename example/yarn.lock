@@ -1842,6 +1842,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+llmas-auth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/llmas-auth/-/llmas-auth-1.0.1.tgz#a02ed79e98117383d6e2c782ccbeb9f69dca6ec2"
+  integrity sha512-w98B+XMVH7FHF4XbtmRlfAq68Vd+Agwa5VI0FK5at8yFjoKZ71jGoocnWqJahD/JfS3+WFLnM7D6rTupE74Mig==
+
 locate-path@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-6.0.0.tgz#55321eb309febbc59c4801d931a72452a681d286"
@@ -2418,11 +2423,6 @@ slash@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
-
-solana-auth@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/solana-auth/-/solana-auth-1.0.1.tgz#eee38400c9fff61700aed4cbdeac977ebf1825d4"
-  integrity sha512-wVg5rAct3TdLOIa8e/gKRcD6HNgPATsFVSBa8J6k2BTcKgCBUt11dEDPmyfSFuOMNlFgh+M9h3G/Cow9kq+s5Q==
 
 source-map-js@^1.0.2:
   version "1.0.2"

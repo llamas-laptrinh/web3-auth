@@ -1,14 +1,10 @@
 "use client";
-// import Image from "next/image";
 import { getCsrfToken, signIn, signOut } from "next-auth/react";
 import styles from "./page.module.css";
-import { SignButton } from "@/components";
-import Signature from "solana-auth/packages/core/signature";
+import { SignButton, Signature, connectWallet } from "llmas-auth";
 import React from "react";
-import { connectWallet } from "@/util";
 import bs58 from "bs58";
-// import Signature from "@/util/signature";
-
+// import "llmas-auth";
 export default function Home() {
   const [walletAddress, setWalletAddress] = React.useState("");
 

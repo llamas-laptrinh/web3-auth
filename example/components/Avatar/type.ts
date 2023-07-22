@@ -1,6 +1,4 @@
-import { StaticImageData } from "next/image";
-
 export type avatarProps = {
-  avatarSrc: string | StaticImageData;
+  avatarSrc: string;
   onClick?: () => void;
 };

@@ -1,4 +1,4 @@
-import Signature from "@/util/signature";
+import { Signature } from "llmas-auth";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getCsrfToken } from "next-auth/react";
