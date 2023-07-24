@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 8px;
+}
+
+.main>div {
+    padding: 6px 0;
+}
+
+.header {
+    display: flex;
+    padding: 12px 8px;
+    border-bottom: 1px solid white;
+}
+
+.logoContainer {
+    flex: 1;
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import { ConnectButtonProps } from "./types";
+import { AuthButtonProps } from "./types";
 import { Avatar } from "../Avatar";
 
-export function SignButton({
+export function AuthenButton({
   buttonlabel = "Connect",
   buttonBackground,
   avatarSrc = "",
@@ -11,7 +11,7 @@ export function SignButton({
   onClick,
   onAvatarClick,
   address,
-}: ConnectButtonProps) {
+}: AuthButtonProps) {
   const renderButton = () => {
     return customButton ? (
       customButton(buttonlabel, onClick)
