@@ -1,2 +1,2 @@
 export * from "./Avatar";
-export * from "./SignButton";
+export * from "./AuthenButton";

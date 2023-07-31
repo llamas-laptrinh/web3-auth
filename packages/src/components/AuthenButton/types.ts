@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type ConnectButtonProps = {
+export type AuthButtonProps = {
   buttonlabel?: string;
   buttonBackground?: string;
   address: string;
