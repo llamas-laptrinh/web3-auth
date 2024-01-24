@@ -3,6 +3,7 @@ import { getCsrfToken, signIn, signOut } from "next-auth/react";
 import styles from "./page.module.css";
 import React from "react";
 import { Signature, getProvider } from "@/util";
+import { getPoolBidDetails } from "@/util/getPoolBidDetails";
 import { AuthenButton } from "@/components";
 import bs58 from "bs58";
 import { useSession } from "next-auth/react";
@@ -73,6 +74,7 @@ export default function Home() {
             SignOut
           </button>
         )}
+        {getPoolBidDetails("G498NY38Jxdab9BbGfaKiHze1pcr94ZLqusDoxUwoWsm")}
       </main>
     </>
   );
