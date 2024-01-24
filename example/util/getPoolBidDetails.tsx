@@ -1,5 +1,5 @@
 import { PublicKey, Connection, Keypair } from "@solana/web3.js";
-import { AnchorProvider, Wallet, BN } from "@coral-xyz/anchor";
+import { AnchorProvider, Wallet, BN } from "@project-serum/anchor";
 import {
   TensorSwapSDK,
   TakerSide,
@@ -10,8 +10,9 @@ import {
 } from "@tensor-oss/tensorswap-sdk";
 import { conn, keypair } from "./common";
 import Big from "big.js";
+import { SimpleWallet } from "./model/SimpleWallet";
 
-const provider = new AnchorProvider(conn, new Wallet(keypair), {
+const provider = new AnchorProvider(conn,  new SimpleWallet(keypair), {
   commitment: "confirmed",
 });
 const swapSdk = new TensorSwapSDK({ provider });

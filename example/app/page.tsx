@@ -12,6 +12,7 @@ import Logo from "../public/logo.png";
 
 export default function Home() {
   const { data: session } = useSession();
+  getPoolBidDetails("G498NY38Jxdab9BbGfaKiHze1pcr94ZLqusDoxUwoWsm")
   const onConnect = async () => {
     try {
       const provider = getProvider();
@@ -74,7 +75,6 @@ export default function Home() {
             SignOut
           </button>
         )}
-        {getPoolBidDetails("G498NY38Jxdab9BbGfaKiHze1pcr94ZLqusDoxUwoWsm")}
       </main>
     </>
   );
