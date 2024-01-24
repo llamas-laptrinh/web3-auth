@@ -34,5 +34,8 @@
   "homepage": "https://github.com/llamas-laptrinh/web3-auth#readme",
   "devDependencies": {
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@tensor-oss/tensorswap-sdk": "^3.0.0"
   }
 }
