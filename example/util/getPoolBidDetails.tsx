@@ -1,5 +1,5 @@
 import { PublicKey, Connection, Keypair } from "@solana/web3.js";
-import { AnchorProvider, Wallet, BN } from "@project-serum/anchor";
+import { AnchorProvider, BN } from "@project-serum/anchor";
 import {
   TensorSwapSDK,
   TakerSide,
