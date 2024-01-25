@@ -5,8 +5,7 @@ import { Connection, Keypair, PublicKey } from "@solana/web3.js";
 // https://api.devnet.solana.com
 // https://api.mainnet-beta.solana.com
 
-
-export const conn = new Connection("https://mainnet.helius-rpc.com/?api-key=bfdf6369-8e47-4969-9acb-f72f2cda9f8e");
+export const conn = new Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.NEXTAUTH_URL}`);
 export const keypair = Keypair.generate();
 console.log(`${process.env.SOLANA_ENDPOINT}`)
 export const nftMint = new PublicKey(
