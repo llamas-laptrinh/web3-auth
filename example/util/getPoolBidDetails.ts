@@ -59,7 +59,7 @@ async function getPoolBidDetails(poolAddress: any) {
   }
 
   // retrieve initial highest bid price if pool is double sided (config.startingPrice would be the initial lowest list price in that case)
-  var startingPriceBidSide: Big;
+  let startingPriceBidSide: Big;
   if (config.poolType == PoolType.Trade) {
     // on linear curvetype, subtract delta once and multiply by (1 - mmFee)
     if (config.curveType == CurveType.Linear) {
