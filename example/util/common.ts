@@ -3,10 +3,12 @@ import { Connection, Keypair, PublicKey } from "@solana/web3.js";
 
 
 // https://api.devnet.solana.com
-// https://api.mainnet-beta.solana.com
+// https://api.mainnet-beta.solana.com - 1 req/sec
 
-export const conn = new Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.NEXTAUTH_URL}`);
+// export const conn = new Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.NEXTAUTH_URL}`);
+export const conn = new Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.RPC_API_KEY}`); // 1M req
 export const keypair = Keypair.generate();
+console.log(`${process.env.SOLANA_ENDPOINT}`)
 export const nftMint = new PublicKey(
   "AhzUD99Lq9wWXLWQHXF6y3gGZzmxyNU9uMBW7hdtpEg4"
 );
