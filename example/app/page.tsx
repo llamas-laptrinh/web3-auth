@@ -1,18 +1,27 @@
 "use client";
 import { getCsrfToken, signIn, signOut } from "next-auth/react";
+import React, { useMemo, useState, useEffect } from "react";
 import styles from "./page.module.css";
-import React from "react";
 import { Signature, getProvider } from "@/util";
-import { getPoolBidDetails } from "@/util/getPoolBidDetails";
-import { AuthenButton } from "@/components";
 import bs58 from "bs58";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Logo from "../public/logo.png";
+import { MagicEdenLoginButton } from "@/components/MagicEdenLoginButton";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
+import { clusterApiUrl } from "@solana/web3.js";
 
 export default function Home() {
+  // Set the network to 'devnet', 'testnet', or 'mainnet-beta'
+  const network = WalletAdapterNetwork.Devnet;
+  // You can also provide a custom RPC endpoint
+  const endpoint = useMemo(() => clusterApiUrl(network), []);
+  // Include Magic Eden WalletAdapter here or any other configurations needed
+  // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking
+  const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
+ 
   const { data: session } = useSession();
-  getPoolBidDetails("G498NY38Jxdab9BbGfaKiHze1pcr94ZLqusDoxUwoWsm")
   const onConnect = async () => {
     try {
       const provider = getProvider();
@@ -55,12 +64,7 @@ export default function Home() {
         <div className={styles.logoContainer}>
           <h1>logo</h1>
         </div>
-        <AuthenButton
-          avatarSrc={session?.user?.image}
-          onClick={onConnect}
-          buttonlabel="SignIn by Wallet"
-          address={session?.user?.name || ""}
-        />
+        <MagicEdenLoginButton buttonBackground={'#fff'} />
       </header>
       <main className={styles.main}>
         <Image width={64} height={64} src={Logo} alt="user avatar" />
@@ -69,12 +73,6 @@ export default function Home() {
           <h3>Address: {session?.user?.name}</h3>
           <p>Expires: {new Date(session?.expires || "").toTimeString()}</p>
         </div>
-
-        {session !== null && (
-          <button className="buttonContainer" onClick={() => signOut()}>
-            SignOut
-          </button>
-        )}
       </main>
     </>
   );
