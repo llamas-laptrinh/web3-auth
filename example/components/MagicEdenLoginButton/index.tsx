@@ -29,7 +29,6 @@ const WalletMultiButton = dynamic(
 );
 interface MagicButtonProps  {
   buttonlabel?: string;
-  buttonBackground?: string;
 };
 const WalletDisconnectButton = dynamic(
   () =>
@@ -40,8 +39,7 @@ const WalletDisconnectButton = dynamic(
 );
 // Create a function to connect to Magic Eden Wallet
 export function MagicEdenLoginButton({
-  buttonlabel = "Connect",
-  buttonBackground,
+  buttonlabel = "Connect"
 }: MagicButtonProps ) {
   // Set the network to 'devnet', 'testnet', or 'mainnet-beta'
   const network = WalletAdapterNetwork.Devnet;
@@ -54,20 +52,6 @@ export function MagicEdenLoginButton({
   // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking
   const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
 
-  const [collections, setCollections] = useState<Collection[] | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getCollections();
-        setCollections(result);
-      } catch (error) {
-        console.error("Error fetching collections:", error);
-      }
-    };
-
-    fetchData();
-  }, []); // Run only once on mount
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
