@@ -1,26 +1,18 @@
 "use client";
-import { getCsrfToken, signIn, signOut } from "next-auth/react";
 import React, { useMemo, useState, useEffect } from "react";
 import styles from "./page.module.css";
-import { Signature, getProvider } from "@/util";
-import bs58 from "bs58";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 import { MagicEdenLoginButton } from "@/components/MagicEdenLoginButton";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
-import { clusterApiUrl } from "@solana/web3.js";
-import { Collection, getCollections } from "@/util/getCollections";
+import { CollectionsApiResponse, getCollections } from "@/util/getCollections";
 
 export default function Home() {
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), []);
-  const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
-
   const { data: session } = useSession();
-  const [collections, setCollections] = useState<Collection[] | null>(null);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [collections, setCollections] = useState<CollectionsApiResponse | null>(
+    null
+  );
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,9 +21,8 @@ export default function Home() {
         setCollections(result);
       } catch (error) {
         console.error("Error fetching collections:", error);
-        // Handle errors (e.g., show an error message to the user)
       } finally {
-        setLoading(false); // Set loading to false regardless of success or failure
+        setLoading(false);
       }
     };
 
@@ -40,25 +31,25 @@ export default function Home() {
 
   const renderCollections = () => {
     if (loading) {
-      return <p>Loading...</p>; // Show a loading message while fetching data
+      return <p>Loading...</p>;
     }
-
-    if (!collections || collections.length === 0) {
-      return <p>No collections found.</p>; // Handle case when no collections are available
+  
+    if (!collections || !collections.data || collections.data.length === 0) {
+      return <p>No collections found.</p>;
     }
-
+  
     return (
       <div>
-        {collections.map((item, index) => (
+        {collections.data.map((item, index) => (
           <div key={index}>
             <h3>{item.name}</h3>
             <p>{item.description}</p>
-            {/* Add more content as needed */}
           </div>
         ))}
       </div>
     );
   };
+  
 
   return (
     <>

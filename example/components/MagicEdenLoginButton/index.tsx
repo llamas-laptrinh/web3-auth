@@ -1,5 +1,5 @@
 // Import necessary libraries
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -8,17 +8,9 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
-import { getCollections } from "@/util/getCollections";
 
 import dynamic from "next/dynamic";
 
-// Import Collection type from the util module
-import { Collection } from "@/util/getCollections";
-import { AuthButtonProps } from "../AuthenButton/types";
-import Image from "next/image";
-import { Avatar } from "../Avatar";
-
-// Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
 const WalletMultiButton = dynamic(
   () =>

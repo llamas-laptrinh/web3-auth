@@ -9,7 +9,10 @@ export interface Collection {
   discord: string;
   website?: string;
   categories: string[];
-  [key: string]: string | string[] | undefined; // Updated index signature
+  isBadged: boolean;
+  hasCNFTs: boolean;
+  isOcp: boolean;
+  splTokens: string[];
 }
 
 export interface CollectionsApiResponse {
@@ -18,8 +21,8 @@ export interface CollectionsApiResponse {
 
 export const getCollections = (
   offset: number = 0,
-  limit: number = 200
-): Promise<Collection[]> => {
+  limit: number = 20
+): Promise<CollectionsApiResponse> => {
   const apiUrl = "https://api-mainnet.magiceden.dev/v2/collections";
   console.log("API URL:", apiUrl);
   console.log("Parameters:", { offset, limit });
@@ -32,7 +35,7 @@ export const getCollections = (
     })
     .then((response: AxiosResponse<CollectionsApiResponse>) => {
       console.log("API Response:", response);
-      return response.data.data;
+      return response.data;
     })
     .catch((error) => {
       console.error("Error fetching collections:", error);
@@ -42,7 +45,7 @@ export const getCollections = (
 
 // Function to map collections into a table
 export const mapCollectionsToTable = (collections: Collection[]): string => {
-  const headers = Object.keys(collections[0]);
+  const headers = Object.keys(collections[0]) as (keyof Collection)[];
   const tableHeader = `<tr>${headers
     .map((header) => `<th>${header}</th>`)
     .join("")}</tr>`;
