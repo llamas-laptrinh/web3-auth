@@ -1,4 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+require('dotenv').config();
 
-module.exports = nextConfig
+module.exports = {
+  // your other configurations
+  images: {
+    domains: ['ui-avatars.com'],
+  },
+  env: {
+    RPC_API_KEY: process.env.RPC_API_KEY,
+  },
+};

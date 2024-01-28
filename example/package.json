@@ -9,23 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-glow": "^0.1.17",
     "@solana/wallet-adapter-phantom": "^0.9.23",
-    "@solana/wallet-adapter-react": "^0.15.32",
-    "@solana/wallet-adapter-react-ui": "^0.9.31",
-    "@solana/web3.js": "^1.78.0",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
+    "@solana/wallet-adapter-wallets": "^0.19.26",
+    "@solana/web3.js": "^1.89.1",
+    "@tensor-hq/tensorswap-sdk": "^1.7.9",
+    "@tensor-oss/tensorswap-sdk": "^3.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "big.js": "^6.2.1",
     "bs58": "^5.0.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "llmas-auth": "^1.0.1",
-    "next": "13.4.10",
+    "next": "^13.5.6",
     "next-auth": "^4.22.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tweetnacl": "^1.0.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/big.js": "^6.2.2"
   }
 }
