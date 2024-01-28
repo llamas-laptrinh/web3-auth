@@ -9,9 +9,7 @@ import { CollectionsApiResponse, getCollections } from "@/util/getCollections";
 
 export default function Home() {
   const { data: session } = useSession();
-  const [collections, setCollections] = useState<CollectionsApiResponse | null>(
-    null
-  );
+  const [collections, setCollections] = useState<CollectionsApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,11 +31,11 @@ export default function Home() {
     if (loading) {
       return <p>Loading...</p>;
     }
-  
+
     if (!collections || !collections.data || collections.data.length === 0) {
       return <p>No collections found.</p>;
     }
-  
+
     return (
       <div>
         {collections.data.map((item, index) => (
@@ -49,7 +47,6 @@ export default function Home() {
       </div>
     );
   };
-  
 
   return (
     <>

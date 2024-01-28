@@ -33,15 +33,17 @@ export const getCollections = (
         limit,
       },
     })
-    .then((response: AxiosResponse<CollectionsApiResponse>) => {
+    .then((response: AxiosResponse<Collection[]>) => {
       console.log("API Response:", response);
-      return response.data;
+      return { data: response.data }; // Wrap the response.data in CollectionsApiResponse
     })
     .catch((error) => {
       console.error("Error fetching collections:", error);
       throw error;
     });
 };
+
+
 
 // Function to map collections into a table
 export const mapCollectionsToTable = (collections: Collection[]): string => {
